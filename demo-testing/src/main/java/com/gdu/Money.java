@@ -3,7 +3,7 @@ package com.gdu;
 public abstract class Money {
     protected int amount;
     public  abstract Money times(int testMulti);
-    public abstract int currency();
+    public abstract Money currency();
     @Override
     public boolean equals(Object obj) {
         // TODO Auto-generated method stub

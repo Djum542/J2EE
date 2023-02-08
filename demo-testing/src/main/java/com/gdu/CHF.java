@@ -19,9 +19,9 @@ public boolean equals(Object obj) {
     return this.sotien == CHF.sotien;
 }
 @Override
-public int currency() {
+public Money currency() {
     // TODO Auto-generated method stub
     //System.out.println("CHF");
-    return 0;
+    return new CHF(0);
 }
 }

@@ -15,10 +15,10 @@ public class Dollar extends Money{
         return super.equals(obj);
     }
     @Override
-    public int currency() {
+    public Money currency() {
         // TODO Auto-generated method stub
         //System.out.println("USD");
-        return 1;
+        return new Dollar(1);
     }
     @Override
     public Money times(int testMulti) {
