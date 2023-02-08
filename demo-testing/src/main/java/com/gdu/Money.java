@@ -24,7 +24,7 @@ public abstract class Money {
         return new CHF();
 
     }
-    public static Dollar Dollar(int i) {
+    public static Dollar Dollar(int sotien) {
         return null;
     }
     public static CHF CHF(int i) {
