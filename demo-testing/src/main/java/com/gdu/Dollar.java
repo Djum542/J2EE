@@ -18,6 +18,7 @@ public class Dollar extends Money{
     public Money currency() {
         // TODO Auto-generated method stub
         //System.out.println("USD");
+        
         return new Dollar(1);
     }
     @Override
