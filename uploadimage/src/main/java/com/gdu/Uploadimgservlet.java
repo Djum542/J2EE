@@ -27,6 +27,15 @@ public class Uploadimgservlet extends HttpServlet{
         // TODO Auto-generated method stub
         //super.doGet(req, resp);
     }
+    /* (non-Javadoc)
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    /* (non-Javadoc)
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    /* (non-Javadoc)
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
@@ -34,7 +43,7 @@ public class Uploadimgservlet extends HttpServlet{
         String firstname = req.getParameter("firstname");
         String lastname = req.getParameter("lastname");
         InputStream inputStream = null;// luong du lieu 
-        Part filepart = req.getPart("photo");
+        String filepart = req.getParameter("photo");
         String fileUploadName = "";
         if (filepart != null) {
             fileUploadName = filepart.getName();
