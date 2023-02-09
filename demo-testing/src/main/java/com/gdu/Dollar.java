@@ -1,30 +1,28 @@
 package com.gdu;
 
 public class Dollar extends Money{
-    int sotien;
-    public Dollar(int sotien){
-        this.sotien = sotien;
+    
+    /**
+     * @param sotien
+     * @param string
+     */
+    public Dollar(int amount, String currency){
+        super(amount, currency);
     }
-    public Dollar nhan(int sonhan) {
-       // this.sotien = this.sotien * sonhan;
-        return new Dollar( sonhan * this.sotien);
-    }
-    @Override
-    public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return super.equals(obj);
-    }
-    @Override
-    public Money currency() {
-        // TODO Auto-generated method stub
-        //System.out.println("USD");
+    // public Dollar nhan(int sonhan) {
+    //    // this.sotien = this.sotien * sonhan;
+    //     return Money.dollar(sonhan * this.sotien);
+    // }
+    // @Override
+    // public boolean equals(Object obj) {
+    //     // TODO Auto-generated method stub
+    //     return super.equals(obj);
+    // }
+    // @Override
+    // public String currency() {
+    //     // TODO Auto-generated method stub
+    //     System.out.println("USD");
         
-        return new Dollar(1);
-    }
-    @Override
-    public Money times(int testMulti) {
-        // TODO Auto-generated method stub
-        return new Dollar(testMulti);
-    }
-   
+    //     return currency();
+    // }
 }

@@ -2,25 +2,25 @@ package com.gdu;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import java.beans.Expression;
+
 import org.junit.Test;
 public class moneytest {
     @Test
    public void testNhando(){
-        Dollar five = Money.Dollar(5);
+        Money five = Money.dollar(5);
         //Dollar tendollar = five.nhan(2);
-    assertEquals(Money.Dollar(10), five.nhan(2));    
+    assertEquals(Money.dollar(10), five.times(2));    
         //tendollar =  five.nhan(3);
-    assertEquals(Money.Dollar(15), five.nhan(3));
+    assertEquals(Money.dollar(15), five.times(3));
 }
 @Test
 public void sosanh() {
-    Dollar product = new Dollar(5);
-    Dollar duc = product.nhan(2);
-    assertEquals(10, duc.sotien);
-    duc = product.nhan(3);
-    assertEquals(15, duc.sotien);
-
-
+    Money product = Money.dollar(5);
+    Money duc = product.times(2);
+    assertEquals(10, duc.amount);
+    duc = product.times(3);
+    assertEquals(15, duc.amount);
 }
 @Test
 public void testMulti(){
@@ -30,11 +30,21 @@ public void testMulti(){
     //assertEquals(Money.CHF(5), new CHF(5));
     assertNotEquals(Money.CHF(5), chf.times(2));
     // Dollar with franc
-    assertNotEquals(new CHF(5), new Dollar(5));
+    assertNotEquals(Money.CHF(5), Money.dollar(5));
 }
 @Test 
 public void testCurreny(){
     assertEquals("USD", Money.dollar(1).currency());
     assertEquals("CHF", Money.CHF(0).currency());
 }
+@Test
+public void testPlus(){
+    Money pl = Money.dollar(5);
+    Expression sum = pl.plus(pl);
+    //assertEquals(Money.dollar(5), plus.plus(0).currency());
+    Bank bank = new Bank(0, "USD");
+    Money reduced = bank.reduce(sum, "USD");
+    assertEquals(Money.dollar(10), reduced);
+}
+
 }

@@ -1,27 +1,28 @@
 package com.gdu;
 
 import java.lang.reflect.Constructor;
+import java.util.Currency;
 
 public class CHF extends Money{
-    static int sotien;
-    public CHF(){
-        this.sotien = sotien;
+   
+    /**
+     * @param i
+     * @param string
+     */
+    public CHF(int amount, String currency){
+        super(amount, currency);
+    }
+    
+// @Override
+// public boolean equals(Object obj) {
+//     CHF franc = (CHF)obj;
+//     return this.sotien == CHF.sotien;
+// }
+// @Override
+// public String currency() {
+//     // TODO Auto-generated method stub
+//     //System.out.println("CHF");
+//     return currency();
+// }
 
-    }
-    public CHF(int i) {
-    }
-    public CHF times(int number){
-        return new CHF(number * this.sotien);
-    }
-@Override
-public boolean equals(Object obj) {
-    CHF franc = (CHF)obj;
-    return this.sotien == CHF.sotien;
-}
-@Override
-public Money currency() {
-    // TODO Auto-generated method stub
-    //System.out.println("CHF");
-    return new CHF(0);
-}
 }

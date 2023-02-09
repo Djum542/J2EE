@@ -12,7 +12,7 @@
       <param-value>abcde@example.com</param-value>
     </init-param>
     <init-param>
-      <param-name>emailSupport2</param-name>
+      <param-name>EmailSupport2</param-name>
       <param-value>tam@example.com</param-value>
     </init-param>
   </servlet>
