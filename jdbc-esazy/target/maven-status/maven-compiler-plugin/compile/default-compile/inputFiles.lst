@@ -1,0 +1,16 @@
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\bean\Product.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\util\DBUtil.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\CreateProductServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\DeleteProductServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\conn\SQLserverconn.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\model\EncodingFilter.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\LoginServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\model\MyUtils.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\model\CookieFilter.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\ProductListServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\UserInforServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\EditProductServlet.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\bean\UserAccount.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\model\JDBCFilter.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\controller\Home.java
+a:\J2EE\jdbc-esazy\src\main\java\com\gdu\k14pm\model\Connections.java

@@ -22,5 +22,11 @@
 </servlet-mapping>
 <!-- <form method="get/post" action="/form" name="Regisform"> -->
 <!-- </form> -->
-
+<servlet>
+  <servlet-name>Beerservlet</servlet-name>
+  <servlet-class>com.gdu.k14pm.Beerservlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name></servlet-name>
+</servlet-mapping>
 </web-app>

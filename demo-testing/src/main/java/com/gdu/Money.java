@@ -21,7 +21,7 @@ public class Money {
         return currency();
     }
     @Override
-    public boolean equals(Object obj) {
+    public  boolean equals(Object obj) {
         // TODO Auto-generated method stub
        // return super.equals(obj);
        Money money = (Money)obj;
@@ -41,18 +41,22 @@ public class Money {
      * @return
      */
    
-    public Money plus(int plu) {
-        return new Money(plu+this.amount, this.currency);
-    }
+    // public Money plus(int plu) {
+    //     return new Money(plu+this.amount, this.currency);
+    // }
     /**
      * @param pl
      * @return
      */
     public Expression plus(Money pl) {
+        new Money(this.amount +pl.amount, currency);
         return plus(pl);
     }
     public static Money CHF(int i, String string) {
         return null;
     }
-    
+    public Money reduce(String to) {
+        int rate = (currency.equals("CHF") && to.equals("USD"))? 2: 1;
+        return new Money(amount/rate, to);
+    }
 }

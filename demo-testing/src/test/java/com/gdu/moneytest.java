@@ -46,5 +46,28 @@ public void testPlus(){
     Money reduced = bank.reduce(sum, "USD");
     assertEquals(Money.dollar(10), reduced);
 }
+/**
+ * 
+ */
+@Test
+public void testPlusReturn() {
+    Money five = Money.dollar(5);
+    Expression result = five.plus(five);
+    Sum sum = (Sum)result;
+    assertEquals(five, sum.auged);
+    assertEquals(five, sum.addend);
+}
+@Test
+public void testreducesum() {
+    Sum sum = new Sum(Money.dollar(5), Money.dollar(5));
+    Bank reduce = new Bank(5, "USD");
+}
+@Test
+public void testreducemoney() {
+    Bank bank = new Bank(0, null);
+    bank.addrate("CHF","USD");
+    Money result = bank.reduce(Money.CHF(2 ), "USD");
+    assertEquals(Money.dollar(10), "USD");
+}
 
 }
