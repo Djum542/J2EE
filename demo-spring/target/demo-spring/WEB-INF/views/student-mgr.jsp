@@ -40,7 +40,7 @@
         <th></th>
         </tr>
         <tr>
-        <td>Lê Phạm Tuấn Kiệt</td>
+        <td>Lê Phạm Tuấn</td>
         <td>8.5</td>
         <td>CNTT</td>
         <td><a href="student-mgr.htm?lnkEdit">Sửa</a></td>

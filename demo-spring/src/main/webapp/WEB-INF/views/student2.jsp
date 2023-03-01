@@ -21,6 +21,9 @@ label="Ứng dụng phần mềm"/>
 <form:radiobutton path="major" value="WEB"
 label="Thiết kế trang web hoc cai cc gi"/>
 <div>
+    <div>Chuyên ngành</div>
+    <form:radiobuttons path="major" items="${majors}"
+    itemValue=”id” itemLabel=”name”/>
 <button>Cập nhật</button>
 </div>
 </form:form>

@@ -19,7 +19,7 @@
 <form:radiobutton path="major" value="APP"
 label="Ứng dụng phần mềm"/>
 <form:radiobutton path="major" value="WEB"
-label="Thiết kế trang web"/>
+label="Thiết kế trang web hoc cai cc gi"/>
 <div>
 <button>Cập nhật</button>
 </div>

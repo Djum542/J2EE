@@ -13,54 +13,56 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.gdu.k14pm.entity.Student;
 
 @Controller
-// @RequestMapping("/student-mgr")
+//@RequestMapping("student-mgr")
 public class StudentController extends HttpServlet{
     @RequestMapping("show-form")
     public String showform() {
         return "student";
     } 
-}
-    // //Dat kieu du lieu get
+
+    //Dat kieu du lieu get
     // @RequestMapping(value = "show-form", method = RequestMethod.GET)
     // public String showForm(){
     //     return "student";
     // }
+
     // // Dat kieu post
-    // @RequestMapping(value = "save-data", method = RequestMethod.POST)  
-    // public String saveForm(HttpServletRequest request) {
-    //     String name = request.getParameter("name");
-    //     String mark = request.getParameter("mark");
-    //     String maior = request.getParameter("major");
-    //     request.setAttribute("name", name);
-    //     request.setAttribute("mark", mark);
-    //     request.setAttribute("major", maior);
-    //     return "save";
-    // }
+    @RequestMapping(value = "save-data", method = RequestMethod.POST)  
+    public String saveForm(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        String mark = request.getParameter("mark");
+        String maior = request.getParameter("major");
+        request.setAttribute("name", name);
+        request.setAttribute("mark", mark);
+        request.setAttribute("major", maior);
+        return "save";
+    }
+}
     // @RequestMapping()
     // public String index(ModelMap model) {
-    //     model.addAttribute("model","Ban goi");
+    //     model.addAttribute("message","Ban goi");
     //     return "student-mgr";
     // }
     // @RequestMapping(params = "btnInsert")
     // public String insert(ModelMap model){
-    //     model.addAttribute("model", "Ban goi insert");
+    //     model.addAttribute("message", "Ban goi insert");
     //     return "student-mgr";
     // }
     // @RequestMapping(params = "btnDelete")
     // public String delete(ModelMap model){
-    //     model.addAttribute("model", "Ban goi delete");
+    //     model.addAttribute("message", "Ban goi delete");
     //     return "student-mgr";
     // }
     // @RequestMapping(params = "btnUpdate")
     // public String update(ModelMap model){
-    //     model.addAttribute("model", "Ban goi update");
+    //     model.addAttribute("message", "Ban goi update");
     //     return "student-mgr";
     // }
     // @RequestMapping(params = "btnEdit")
     // public String edit(ModelMap model){
-    //     model.addAttribute("model", "Ban goi edit");
+    //     model.addAttribute("message", "Ban goi edit");
     //     return "student-mgr";
-    // }
+    //}
     // @RequestMapping(params = "btnInsert")
     // public String insert(ModelMap model, @RequestParam("name")String name, @RequestParam("mark")String mark, @RequestParam("major") String major) {
     //     model.addAttribute("name", name);
@@ -80,4 +82,4 @@ public class StudentController extends HttpServlet{
     //     return "student";
     // }
     
-
+    //}

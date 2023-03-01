@@ -8,8 +8,8 @@
         <base href="${pageContext.servletContext.contextPath}/">
     </head>
     <body>
-        <!-- <h2>Sinh vien Po</h2>
-        <form action="student/save-data.htm" method="post">
+        <h2>Sinh vien Po</h2>
+        <form action="save-" method="post">
             <div>Ho ten</div>
             <input type="text" name="name">
             <div>Diem trung binh</div>
@@ -24,8 +24,8 @@
             </label>
             <hr>
             <button>Luu</button>
-        </form> -->
-        <form action="${pageContext.servletContext.contextPath}/update" method="post">
+        </form>
+        <!-- <form action="${pageContext.servletContext.contextPath}/update" method="post">
             <div>Ho va ten </div>
             <input value="${student.name}" name="name">
             <div>Diem trung binh</div>
@@ -39,6 +39,6 @@
             </label>
             <hr>
             <button> Cap nhat</button>
-        </form>
+        </form> -->
     </body>
 </html>
