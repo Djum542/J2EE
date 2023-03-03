@@ -1,6 +1,7 @@
 from tabnanny import check
 from tkinter import *
 from tkinter import ttk
+import pandas as pd
 win = Tk()
 win.geometry("500x300")
 def delt():
@@ -12,9 +13,22 @@ def delt():
     ent4.delete(0, END)
     ent5.delete(0, END)
 
+def hienthi():
+    datacus = {'Ma KH':['k01','k02','k03','k04'],
+               'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],
+               'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],
+               'Gioi tinh':['Nam', 'Nam', 'Nu'],
+               'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],
+                'Dien thoai':['0325258', '025478008', '0528475625']}
+    inputs = pd.DataFrame.from_dict(datacus, orient="index")
+    df = inputs.transpose()
+    da = df.to_excel('customer.xlsx')
+    print(df)
+    sho.config(text=df)
+
 la1 = Label(win, text="Thong tin khach hang")
 # la2 = Label(win, text="Danh sach hoa don")
-sho = Text(win, height=10)
+sho = Label(win, height=10)
 lab1 = Label(win, text="Ma KH")
 ent1 = Entry(win, width=15)
 lab2 = Label(win, text="Tenkh")
@@ -34,7 +48,7 @@ ent4 = Entry(win, width=15)
 # ent4["value"] = ["Nguyen Chi Huan", "Tran Cao Trung", "Cao Van Giau"]
 la5 = Checkbutton(win, text="Nam", onvalue=1, offvalue=0, variable=check)
 la6 = Checkbutton(win, text="Nu", onvalue=1, offvalue=0, variable=check)
-btn1 = Button(win, text="Luu")
+btn1 = Button(win, text="Luu", command=hienthi)
 btn2 = Button(win, text="Cap nhat")
 btn3 = Button(win, text="Xoa", command=delt)
 btn4 = Button(win, text="Huy", command=win.destroy)
