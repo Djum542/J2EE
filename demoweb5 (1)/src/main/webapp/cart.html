@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ quần áo, linh kiện thời trang | Red Store</title>
+    <link rel="shortcut icon" href="images/trolley.png" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/u.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li><a href="">Thông tin</a></li>
+                    <li><a href="">Giỏ hàng</a></li>
+                    <li><a href="account.html">Tài khoản</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html"><img src="images/shopping-bags.png" width="30px" height="30px"></a>
+            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <!-- -----------------cart item details------------------- -->
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/c_1.png">
+                        <div>
+                            <p>Black T-shirt Nike</p>
+                            <small>Giá: 830.000</small>
+                            <br>
+                            <a href="">Hủy bỏ</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>830.000 đ</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/c_2.png">
+                        <div>
+                            <p>Black Shoes Adidas</p>
+                            <small>Giá: 1.000.000 đ</small>
+                            <br>
+                            <a href="">Hủy bỏ</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>1.000.000 đ</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/c_3.png">
+                        <div>
+                            <p>Black Ducati Jean</p>
+                            <small>Giá: 450.000</small>
+                            <br>
+                            <a href="">Hủy bỏ</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>450.000 đ</td>
+            </tr>
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Tổng phụ</td>
+                    <td>2.280.000 đ</td>
+                </tr>
+                <tr>
+                    <td>Thuế</td>
+                    <td>220.000 đ</td>
+                </tr>
+                <tr>
+                    <td>Tổng cộng</td>
+                    <td>2.500.000</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ------------footer----------- -->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Tải ứng dụng </h3>
+                    <p>Tải ứng dụng cho cả android và ios
+                        
+                    </p>
+                    <div class="app-logo">
+                        <a href="https://play.google.com/"><img src="images/play-store.png"></a>
+                       <a href="https://www.apple.com/"><img src="images/app-store.png"></a>
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/u.png">
+                    <p>Mục đích là tạo ra nhiều niềm vui và
+                        sản phẩm có thể tiếp cận nhiều người
+                        </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Liên kết:</h3>
+                    <ul>
+                        <li>Phiếu giảm giá</li>
+                        <li>Diễn đàn</li>
+                        <li>Chính sách hoàn trả</li>
+                        <li>Tham gia liên kết</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Theo dõi fanpage:</h3>
+                    <ul>
+                        <a href="https://www.facebook.com/"><li>Facebook</li></a>
+                        <a href="https://twitter.com/"><li>Twitter</li></a>
+                        <a href="https://www.instagram.com/"><li>Instagram</li></a>
+                        <a href="https://www.youtube.com/"><li>Youtube </li></a>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="Copyright">Bản quyền 2022 - Hải Anh</p>
+        </div>
+        <!-- ------------------- js for toggle menu-------------- -->
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle() {
+                if (MenuItems.style.maxHeight == "0px") {
+                    MenuItems.style.maxHeight = "200px";
+                }
+                else {
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+
+        </script>
+
+</body>
+
+</html>

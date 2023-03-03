@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trang quản lý người dùng</title>
+</head>
+<body>
+	<h1>Trang quản lý người dùng</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Tên đăng nhập</th>
+				<th>Email</th>
+				<th>Quyền truy cập</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>johndoe</td>
+				<td>johndoe@example.com</td>
+				<td>Admin</td>
+			</tr>
+			<tr>
+				<td>janedoe</td>
+				<td>janedoe@example.com</td>
+				<td>User</td>
+			</tr>
+		</tbody>
+	</table>
+	<form>
+		<h2>Thêm người dùng mới</h2>
+        <table>
+            <tr>
+		    <td><label for="username">Tên đăng nhập:</label></td>
+		
+		<td><label for="email">Email:</label></td>
+		
+		<td><label for="role">Quyền truy cập:</label></td>
+		<td><select id="role" name="role">
+			<option value="admin">Admin</option>
+			<option value="user">User</option>
+		</select><br>
+        </td>
+        <td><input type="submit" value="Thêm người dùng"></td>
+        </tr>
+        <tr>
+           <td> <input type="text" id="username" name="username"><br></td>
+            <td><input type="text" id="username" name="username"><br></td>
+           <td> <input type="email" id="email" name="email"><br></td>
+        </tr>
+		
+        </table>
+	</form>
+</body>
+</html>
