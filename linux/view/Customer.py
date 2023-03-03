@@ -25,7 +25,21 @@ def hienthi():
     da = df.to_excel('customer.xlsx')
     print(df)
     sho.config(text=df)
-
+def luu():
+    load = pd.read_excel("customer.xlsx")
+    datadd =pd.DataFrame.from_dict({"Ma KH":[ent1],
+              "TenKH":[ent2],
+              "Ngay sinh":[ent3],
+              "Gioi tinh":[la5,la6],
+              "Dia diem":[ent4],
+              "Dien thoai":[ent5]}, orient="index")
+    # datadd laf noi chua thong tin moi, ignore_index=True dam bao chi so cua hang duoc reset
+    #data = load.append(datadd, ignore_index=True)
+    #ad = datadd.transpose()
+    add = pd.concat([datadd], ignore_index=True)
+    print(add)
+    sho.config(text=add)
+    #da = ad.to_excel('customer.xlsx')
 la1 = Label(win, text="Thong tin khach hang")
 # la2 = Label(win, text="Danh sach hoa don")
 sho = Label(win, height=10)
@@ -49,7 +63,7 @@ ent4 = Entry(win, width=15)
 la5 = Checkbutton(win, text="Nam", onvalue=1, offvalue=0, variable=check)
 la6 = Checkbutton(win, text="Nu", onvalue=1, offvalue=0, variable=check)
 btn1 = Button(win, text="Luu", command=hienthi)
-btn2 = Button(win, text="Cap nhat")
+btn2 = Button(win, text="Cap nhat", command=luu)
 btn3 = Button(win, text="Xoa", command=delt)
 btn4 = Button(win, text="Huy", command=win.destroy)
 # btn5 = Button(win, text="Thoat")
