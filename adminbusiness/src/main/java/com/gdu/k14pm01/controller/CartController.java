@@ -2,6 +2,7 @@ package com.gdu.k14pm01.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +14,12 @@ public class CartController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // // TODO Auto-generated method stub
         // super.doGet(req, resp);
+        RequestDispatcher dispatcher = req.getRequestDispatcher(getServletInfo());
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // // TODO Auto-generated method stub
         // super.doPost(req, resp);
+        doGet(req, resp);
     }
 }

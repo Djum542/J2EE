@@ -15,7 +15,7 @@ public class SqlseverConected {// Connect to SQL Server.
 
 		// Note: Change the connection parameters accordingly.
 		String hostName = "localhost";
-		String sqlInstanceName = "SQLEXPRESS";
+		String sqlInstanceName = "DESKTOP-5U7V004\\SINGSERVER";
 		String database = "Cellphone";
 		String userName = "sa";
 		String password = "15142";

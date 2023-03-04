@@ -16,9 +16,6 @@
     <welcome-file>/productlist</welcome-file>
   </welcome-file-list>
   <!-- //////////////////////////////////////////////////////////////////////////////////// -->
-  <servlet>
-    <servlet-name>appServlet</servlet-name>
-    <servlet-class></servlet-class>
-  </servlet>
+  
 
 </web-app>
