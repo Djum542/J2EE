@@ -2,6 +2,7 @@ from tabnanny import check
 from tkinter import *
 from tkinter import ttk
 import pandas as pd
+from tkcalendar import Calendar
 win = Tk()
 win.geometry("500x300")
 def delt():
@@ -14,32 +15,26 @@ def delt():
     ent5.delete(0, END)
 
 def hienthi():
-    datacus = {'Ma KH':['k01','k02','k03','k04'],
-               'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],
-               'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],
-               'Gioi tinh':['Nam', 'Nam', 'Nu'],
-               'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],
-                'Dien thoai':['0325258', '025478008', '0528475625']}
+    datacus = {'Ma KH':['k01','k02','k03','k04'],'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],'Gioi tinh':['Nam', 'Nam', 'Nu'],'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],'Dien thoai':['0325258', '025478008', '0528475625']}
     inputs = pd.DataFrame.from_dict(datacus, orient="index")
     df = inputs.transpose()
     da = df.to_excel('customer.xlsx')
     print(df)
     sho.config(text=df)
 def luu():
-    load = pd.read_excel("customer.xlsx")
-    datadd =pd.DataFrame.from_dict({"Ma KH":[ent1],
-              "TenKH":[ent2],
-              "Ngay sinh":[ent3],
-              "Gioi tinh":[la5,la6],
-              "Dia diem":[ent4],
-              "Dien thoai":[ent5]}, orient="index")
+    data1 = pd.ExcelFile("customer.xlsx")
+    load = pd.read_excel(data1)
+    load.drop(load.filter(regex="Unnamed"), axis=1, inplace=True)
+    datadd ={"Ma KH":[ent1],"TenKH":[ent2],"Ngay sinh":[ent3],"Gioi tinh":[la5,la6],"Dia chi":[ent4],"Dien thoai":[ent5]}
+    #load1 =pd.DataFrame.from_dict(datadd, orient="index")
     # datadd laf noi chua thong tin moi, ignore_index=True dam bao chi so cua hang duoc reset
     #data = load.append(datadd, ignore_index=True)
     #ad = datadd.transpose()
-    add = pd.concat([datadd], ignore_index=True)
-    print(add)
-    sho.config(text=add)
-    #da = ad.to_excel('customer.xlsx')
+    df = load.concat([load, datadd], ignore_index=False)
+    df1 = df.transpose()
+    print(df1)
+    sho.config(text=df1)
+    da = df1.to_excel('customer.xlsx')
 la1 = Label(win, text="Thong tin khach hang")
 # la2 = Label(win, text="Danh sach hoa don")
 sho = Label(win, height=10)
@@ -49,7 +44,8 @@ lab2 = Label(win, text="Tenkh")
 ent2 = ttk.Combobox(win, width=20)
 ent2["value"] = ["Nguyen Chi Huan", "Tran Cao Trung", "Cao Van Giau"]
 lab3 = Label(win, text="Ngay sinh")
-ent5 = Spinbox(win, from_=1/1/1970, to=31/12/2040, wrap=True, width=15)
+ent5 = Spinbox(win, from_=1, to=31, wrap=True, width=2)
+
 # lab3 = Label(win, text="Ten KH")
 # ent3 = ttk.Combobox(win, width=10)
 # ent3["value"] = ["Admin", "Manager","Account"]
