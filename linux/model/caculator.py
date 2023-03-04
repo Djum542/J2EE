@@ -1,38 +1,21 @@
-import tkinter as tk
-from tkinter import ttk
-from datetime import datetime, timedelta
+import openpyxl
+from tkinter import *
 
-class Application(tk.Frame):
-    def __init__(self, master=None):
-        super().__init__(master)
-        self.master = master
-        self.pack()
-        self.create_widgets()
+# load the workbook
+book = openpyxl.load_workbook('customer.xlsx')
+sheet = book.active
 
-    def create_widgets(self):
-        self.cbo_dates = ttk.Combobox(self)
-        self.cbo_dates.pack(side="left")
+# create a list of tuples with the data
+data = [(cell.value,) for row in sheet.iter_rows() for cell in row]
 
-        self.btn_submit = tk.Button(self, text="Xác nhận", command=self.update_combo_box)
-        self.btn_submit.pack(side="left")
+# initialize the GUI window and listbox
+root = Tk()
+my_listbox = Listbox(root)
 
-        # Điều chỉnh ngày/tiếp theo:
-        self.time_delta = timedelta(days=1)
+# insert each item into the listbox
+for item in data:
+    my_listbox.insert(END, item[0])
 
-    def update_combo_box(self):
-        # Xóa các phần tử của combo box:
-        self.cbo_dates['values'] = []
-
-        # Lấy ngày hiện tại:
-        current_date = datetime.now().strftime("%Y-%m-%d")
-
-        # Thêm ngày vào danh sách:
-        for i in range(10):
-            self.cbo_dates['values'] += (current_date,)
-            # Cộng thêm delta time để chuyển sang ngày/tiếp theo:
-            current_date = (datetime.strptime(current_date, "%Y-%m-%d") + self.time_delta).strftime("%Y-%m-%d")
-
-# Khởi tạo và hiển thị ứng dụng:
-# root = tk.Tk()
-# app = Application(master=root)
-# app.mainloop()
+# pack the listbox into the GUI window and start the main event loop
+my_listbox.pack()
+root.mainloop()
