@@ -2,7 +2,7 @@ from tabnanny import check
 from tkinter import *
 from tkinter import ttk
 import pandas as pd
-import datetime
+
 
 from tkcalendar import *
 win = Tk()
@@ -18,20 +18,7 @@ def delt():
     ent4.delete(0, END)
     ent5.delete(0, END)
     load = pd.read_excel('customer.xlsx')
-    dele = load.loc[load['Ma KH'] == ent1]
-    dfde = load.drop(f'{list(la1[ent1])}', axis=1, inplace=True)
-    lay = pd.DataFrame(dfde)
-    lay.to_excel('customer.xlsx')
-def show_calendar(event):
-    value = ent5.get()
-    calendar = ent5[value]
-    calendar.pack(pady=10)
-dates = ['2022-05-01', '2022-05-02', '2022-05-03']
-calendars = {}
-for date in dates:
-    cal = DateEntry(win, date_pattern='yyyy-mm-dd')
-    cal.set_date(date)
-    calendars[date] = cal
+
 def hienthi():
     datacus = {'Ma KH':['k01','k02','k03'],'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],'Gioi tinh':['Nam', 'Nam', 'Nu'],'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],'Dien thoai':['0325258', '025478008', '0528475625']}
     inputs = pd.DataFrame.from_dict(datacus, orient="index")
@@ -40,35 +27,31 @@ def hienthi():
     lay = pd.read_excel("customer.xlsx")
     lay.drop(lay.filter(regex="Unnamed"), axis=1, inplace=True)
     print(df)
-    sho.config(text=lay)
-
-
-
+    sho.index(lay)
 def luu():
-    ma = int(input("Nhap ma KH:"))
-    ten = str(input("Nhap ten KH:"))
-    bir = str(input("Ngay sinh:"))
+    data = pd.ExcelFile('customer.xlsx')
+    df1 = pd.read_excel(data)
+    ma = ent1.get()
+    ten = ent2.get()
+    bir = ent3.get()
+    # ft = la5.getdouble()
+    # gt = la6.getboolean()
+    dc = ent4.get()
+    dt = ent5.get()
+    data1 = {'Ma KH':[ma], 'TenKH':[ten], 'Ngay sinh':[bir], 'Gioi tinh':["nam/nu"], 'Dia chi':[dc], 'Dien thoai':[dt] }
+    df2 = pd.DataFrame(data1)
 
-    dc= str(input("Gioi tinh:"))
-    dt = int(input("Dien thoai:"))
-    data1 = pd.ExcelFile("customer.xlsx")
-    load = pd.read_excel(data1)
-    load.drop(load.filter(regex="Unnamed"), axis=1, inplace=True)
-    datadd ={"Ma KH":[ma],"TenKH":[ten],"Ngay sinh":[bir],"Gioi tinh":["Nam"],"Dia chi":[dc],"Dien thoai":[dt]}
-    load1 =pd.DataFrame.from_dict(datadd, orient="index")
-    df = pd.concat([load, load1])
-    df1 = df.transpose()
-    print(df1)
-    sho.config(text=df1)
-    da = df1.to_excel('customer.xlsx')
-# def show_calendar():
-#     calendar.place(relx=.5, rely=.5, anchor="left")
+    df = df1.append(df2)
+    sho.insert(df)
+    # xoa = df1.drop(columns=['Unnamed'], axis=1)
+    print(df)
+
 # Tao ra cac chuc nang tren giao dien
 la1 = Label(win, text="Thong tin khach hang")
 # la2 = Label(win, text="Danh sach hoa don")
 
 
-sho = Label(win, width=100)
+sho = Listbox(win, width=100)
 lab1 = Label(win, text="Ma KH")
 ent1 = Entry(win, width=15)
 lab2 = Label(win, text="Tenkh")
@@ -76,9 +59,9 @@ ent2 = ttk.Combobox(win, width=20)
 ent2["value"] = ["Nguyen Chi Huan", "Tran Cao Trung", "Cao Van Giau"]
 lab3 = Label(win, text="Ngay sinh")
 #ent5 = Spinbox(win, from_=1, to=31, wrap=True, width=2)
-ent5 = ttk.Combobox(win, width=15, values=dates)# tao ra chonj lichj
+ent5 = ttk.Combobox(win, width=15)# tao ra chonj lichj
 #ent5.set_date(datetime.date.today())
-ent5.bind('<<ComboboxSelected>>', show_calendar)
+
 # lab3 = Label(win, text="Ten KH")
 # ent3 = ttk.Combobox(win, width=10)
 # ent3["value"] = ["Admin", "Manager","Account"]

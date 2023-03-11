@@ -15,18 +15,21 @@ def thoat():
 def hoadon():
     data = {"Ma HD":["hd01", "hd02", "hd03"], "Ngay Lap HD":["12/06/2022", "13/07/2002", "24/07/2022"], "Nhan vien":["Account", "Admin", "Manager"], "Khach hang":["Nguyen Xuan Hoa", "Tran Van Hoa", "Hoa Xuan Tieu"]}
     df = pd.DataFrame(data)
-    fd = df.transpose()
 
-    ma = str(input("Ma hd:" + ent1.get()))
-    ngay = str(input("Ngay Lap HD:" + ent2.get()))
-    nhanv = str(input("Nhan vien:" + ent3.get()))
-    khachh = str(input("Khach hang:" + ent4.get()))
+    ma = ent1.get()
+    ngay = ent2.get()
+    nhanv = ent3.get()
+    khachh = ent4.get()
+    # ma = str(input("Ma hd:" + ent1.get()))
+    # ngay = str(input("Ngay Lap HD:" + ent2.get()))
+    # nhanv = str(input("Nhan vien:" + ent3.get()))
+    # khachh = str(input("Khach hang:" + ent4.get()))
     data1 = pd.read_excel("bill.xlsx")
     df1 = {'Ma HD':[ma], 'Ngay Lap HD':[ngay], 'Nhan vien':[nhanv], 'Khach hang':[khachh]}
     data2 = pd.DataFrame(df1)
-    df2 = pd.concat([data1,data2], axis=1)
-    sho.config(text=data1)
-    fd.to_excel('bill.xlsx')
+    df2 = data1.append(data2)
+    sho.config(text=df2)
+    df2.to_excel('bill.xlsx')
 def dethd():
     df = pd.ExcelFile('bill.xlsx')
     data = pd.read_excel(df)
