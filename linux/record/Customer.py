@@ -20,14 +20,15 @@ def delt():
     load = pd.read_excel('customer.xlsx')
 
 def hienthi():
-    datacus = {'Ma KH':['k01','k02','k03'],'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],'Gioi tinh':['Nam', 'Nam', 'Nu'],'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],'Dien thoai':['0325258', '025478008', '0528475625']}
+    datacus = {'Ma KH':['k01','k02','k03'],
+               'TenKH':['Nguyen Thien Thuat', 'Trau Sinh Co', 'Hoang Van Mau'],'Ngay sinh':['12/05/2001', '30/08/2003', '14/02/2002'],'Gioi tinh':['Nam', 'Nam', 'Nu'],'Dia chi':['Thanh Hoa', 'Binh Dinh', 'Dong Thap'],'Dien thoai':['0325258', '025478008', '0528475625']}
     inputs = pd.DataFrame.from_dict(datacus, orient="index")
     df = inputs.transpose()
     da = df.to_excel('customer.xlsx')
     lay = pd.read_excel("customer.xlsx")
     lay.drop(lay.filter(regex="Unnamed"), axis=1, inplace=True)
     print(df)
-    sho.index(lay)
+    sho.insert(END,lay)
 def luu():
     data = pd.ExcelFile('customer.xlsx')
     df1 = pd.read_excel(data)
@@ -42,7 +43,7 @@ def luu():
     df2 = pd.DataFrame(data1)
 
     df = df1.append(df2)
-    sho.insert(df)
+    sho.insert(END,df)
     # xoa = df1.drop(columns=['Unnamed'], axis=1)
     print(df)
 

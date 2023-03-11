@@ -8,15 +8,16 @@ win.geometry("600x400")
 win.title("Profilecellphone")
 # lis = ["oppo", "samsung", "redmi", "xiaomi", "nokia"]
 def show():
-    # sh = connectSQL.get()
-    # ds.config(sh)
+
     ds = Listbox(win, width=30, height=20)
     ds.place(x=300, y=40)
-    df = pd.read_csv('profilecell.csv')
+    data1 = {'Hãng':['Oppo', 'Samsung', 'Readmi', 'Xiaomi'],'Mã':['Op01', 's01', 'r01'],'Tên Dt':['Oppo reno 5', 'Samsung galaxy s22', 'Readmi 5'], 'Màu sắc':['Trắng', 'đen', 'Trắng'], 'Số lượng':[20,18,34], 'Đơn giá':[3200000,2400000,4200000]}
+    df = pd.DataFrame.from_dict(data1, orient="index")
     # dff = pd.DataFrame(df)
-    ds.config(df)
-    for i in range(len(df)):
-        ds.insert(i, df[i])
+    ds.insert(END,df)
+    print(df)
+    dk = df.to_excel('product.xlsx')
+
     # print(df.to_string())
 def dienvo():
     comb = nhap1.get()
@@ -26,6 +27,8 @@ def dienvo():
     dong = chon1.get()
     for i in range(len(comb,ma,ten,sol,dong)):
         ds.insert(comb)
+def thoat():
+    win.destroy()
 label1 = Label(win, text="Thôn tin điện thoại")
 label1.place(x=5, y=5)
 # label1.pack()
@@ -78,12 +81,12 @@ btn1 = Button(win, text="Thêm", activebackground="green", command=dienvo)
 btn1.place(x=15, y=240)
 btn2 = Button(win, text="Xóa", activebackground="red")
 btn2.place(x= 80, y=240)
-btn3 = Button(win, text="Sửa",activebackground="yellow")
+btn3 = Button(win, text="Sửa",activebackground="yellow", command=show)
 btn3.place(x=160, y=240)
 btn4 = Button(win, text="Cập nhật",activebackground="green")
 btn4.place(x=5, y=280)
-btn5 = Button(win, text="Hủy",activebackground="yellow")
+btn5 = Button(win, text="Hủy",activebackground="yellow", command=show)
 btn5.place(x=80, y=280)
-btn6 = Button(win, text="Thoát", activebackground="white")
+btn6 = Button(win, text="Thoát", activebackground="white", command=thoat)
 btn6.place(x=160, y=280)
 win.mainloop()

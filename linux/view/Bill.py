@@ -14,7 +14,7 @@ def thoat():
     win.destroy()
 def hoadon():
     data = {"Ma HD":["hd01", "hd02", "hd03"], "Ngay Lap HD":["12/06/2022", "13/07/2002", "24/07/2022"], "Nhan vien":["Account", "Admin", "Manager"], "Khach hang":["Nguyen Xuan Hoa", "Tran Van Hoa", "Hoa Xuan Tieu"]}
-    df = pd.DataFrame(data)
+    df = pd.DataFrame.from_dict(data, orient="index")
     fd = df.transpose()
 
     ma = str(input("Ma hd:" + ent1.get()))
