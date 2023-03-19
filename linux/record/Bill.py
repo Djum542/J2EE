@@ -13,9 +13,12 @@ ipysheet.cell(0,0,date)
 def thoat():
     win.destroy()
 def hoadon():
-    data = {"Ma HD":["hd01", "hd02", "hd03"], "Ngay Lap HD":["12/06/2022", "13/07/2002", "24/07/2022"], "Nhan vien":["Account", "Admin", "Manager"], "Khach hang":["Nguyen Xuan Hoa", "Tran Van Hoa", "Hoa Xuan Tieu"]}
+    data = {"Ma HD":["hd01", "hd02", "hd03"],
+            "Ngay Lap HD":["12/06/2022", "13/07/2002", "24/07/2022"],
+            "Nhan vien":["Account", "Admin", "Manager"],
+            "Khach hang":["Nguyen Xuan Hoa", "Tran Van Hoa", "Hoa Xuan Tieu"]}
     df = pd.DataFrame(data)
-
+    df.to_excel('bill.xlsx')
     ma = ent1.get()
     ngay = ent2.get()
     nhanv = ent3.get()
@@ -28,21 +31,21 @@ def hoadon():
     df1 = {'Ma HD':[ma], 'Ngay Lap HD':[ngay], 'Nhan vien':[nhanv], 'Khach hang':[khachh]}
     data2 = pd.DataFrame(df1)
     df2 = data1.append(data2)
-    sho.config(text=df2)
+    sho.insert('end', df2)
     df2.to_excel('bill.xlsx')
 def dethd():
-    df = pd.ExcelFile('bill.xlsx')
-    data = pd.read_excel(df)
-    ma = str(input("Nhap ma:"))
-     # in=int(input("Hay nhap vao don vi can xoa"))
-    df = data.drop(data[data['Ma HD'] == ma].index)
-    sho.config(text=df)
-    df.to_excel("bill.xlsx")
-
+    data = pd.ExcelFile('../../../managercell/view/bill.xlsx')
+    df1 = pd.read_excel(data)
+    mahd =ent1.getdouble(1)
+    ma = df1.iloc[1]
+    xoa= df1.drop([ma].index(), axis=1)
+    ma = pd.DataFrame(df1)
+    sho.insert('end', df1)
+    ma.to_excel('bill.xlsx')
 la1 = Label(win, text="Thong tin hoa don")
 la2 = Label(win, text="Danh sach hoa don")
-fra = Frame(win, height=20, width=50, background="green")
-sho = Label(fra, height=15, width=60)
+fra = Frame(win, height=500, width=400, background="green")
+sho = Listbox(fra, height=15, width=60)
 lab1 = Label(win, text="Ma HD")
 ent1 = Entry(win, width=15)
 lab2 = Label(win, text="Ngay lap HD")
@@ -63,8 +66,8 @@ btn4 = Button(win, text="Xoa HD", command=dethd)
 btn5 = Button(win, text="Thoat", command=thoat)
 la1.place(x=5)
 la2.place(x=300)
-fra.place(x=200, y=20)
-sho.pack()
+fra.place(x=280, y=20)
+sho.place(x=5, y=20)
 lab1.place(x=5, y=20)
 ent1.place(x=80, y=20)
 lab2.place(x=5, y=40)

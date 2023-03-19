@@ -28,7 +28,7 @@ text = Entry(win)
 text.pack()
 
 def delt():
-    data1 = pd.ExcelFile('customer.xlsx')
+    data1 = pd.ExcelFile('../../../managercell/view/customer.xlsx')
     df1 = pd.read_excel(data1)
     email = str(input("Nhap email can xoa:"))
     df = df1.drop(df1[df1['Ma KH'] == email].index)

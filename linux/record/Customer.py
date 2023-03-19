@@ -30,7 +30,7 @@ def hienthi():
     print(df)
     sho.insert(END,lay)
 def luu():
-    data = pd.ExcelFile('customer.xlsx')
+    data = pd.ExcelFile('../../../managercell/view/customer.xlsx')
     df1 = pd.read_excel(data)
     ma = ent1.get()
     ten = ent2.get()
